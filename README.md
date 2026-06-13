@@ -119,8 +119,3 @@ PAY 3
 SEARCH_BILL_BY_PROVIDER UNKNOWN_PROVIDER
 ```
 
-### Invalid command
-
-```text
-HELLO
-```

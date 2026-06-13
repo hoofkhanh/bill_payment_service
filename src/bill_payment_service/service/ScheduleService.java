@@ -14,7 +14,7 @@ public class ScheduleService {
 	}
 
 	public void schedulePayment(long billId, LocalDate executeDate) {
-		ScheduledPayment schedule = new ScheduledPayment( billId, executeDate);
+		ScheduledPayment schedule = new ScheduledPayment(billId, executeDate);
 
 		scheduleRepository.save(schedule);
 	}

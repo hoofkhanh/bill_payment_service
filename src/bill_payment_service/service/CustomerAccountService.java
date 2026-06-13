@@ -1,29 +1,27 @@
 package bill_payment_service.service;
 
-
 public class CustomerAccountService {
 	private long balance;
 
-    public void cashIn(long amount) {
+	public void cashIn(long amount) {
 
-        if (amount <= 0) {
-            throw new IllegalArgumentException();
-        }
+		if (amount <= 0) {
+			throw new IllegalArgumentException();
+		}
 
-        balance += amount;
-    }
+		balance += amount;
+	}
 
-    public void withdraw(long amount) {
+	public void withdraw(long amount) {
 
-        if (balance < amount) {
-            throw new RuntimeException(
-                    "Not enough fund");
-        }
+		if (balance < amount) {
+			throw new RuntimeException("Not enough fund");
+		}
 
-        balance -= amount;
-    }
+		balance -= amount;
+	}
 
-    public long getBalance() {
-        return balance;
-    }
+	public long getBalance() {
+		return balance;
+	}
 }

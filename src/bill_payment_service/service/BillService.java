@@ -10,74 +10,45 @@ import bill_payment_service.repository.BillRepository;
 public class BillService {
 	private final BillRepository repository;
 
-    public BillService(
-            BillRepository repository
-    ) {
-        this.repository = repository;
-    }
+	public BillService(BillRepository repository) {
+		this.repository = repository;
+	}
 
-    public void createBill(Bill bill) {
+	public void createBill(Bill bill) {
 
-        repository.save(bill);
-    }
+		repository.save(bill);
+	}
 
-    public void updateBill(Bill bill) {
+	public void updateBill(Bill bill) {
 
-        Bill existing =
-                repository.findById(
-                                bill.getId())
-                        .orElseThrow(
-                                () ->
-                                        new RuntimeException(
-                                                "Bill not found"));
+		repository.findById(bill.getId()).orElseThrow(() -> new RuntimeException("Bill not found"));
 
-        repository.save(bill);
-    }
+		repository.save(bill);
+	}
 
-    public void deleteBill(long billId) {
+	public void deleteBill(long billId) {
 
-        repository.delete(billId);
-    }
+		repository.delete(billId);
+	}
 
-    public Bill getBill(long billId) {
+	public Bill getBill(long billId) {
 
-        return repository.findById(billId)
-                .orElseThrow(
-                        () ->
-                                new RuntimeException(
-                                        "Bill not found"));
-    }
+		return repository.findById(billId).orElseThrow(() -> new RuntimeException("Bill not found"));
+	}
 
-    public List<Bill> getAllBills() {
+	public List<Bill> getAllBills() {
 
-        return repository.findAll();
-    }
+		return repository.findAll();
+	}
 
-    public List<Bill> searchByProvider(
-            String provider
-    ) {
+	public List<Bill> searchByProvider(String provider) {
 
-        return repository.findAll()
-                .stream()
-                .filter(
-                        bill ->
-                                bill.getProvider()
-                                        .equalsIgnoreCase(
-                                                provider))
-                .toList();
-    }
+		return repository.findAll().stream().filter(bill -> bill.getProvider().equalsIgnoreCase(provider)).toList();
+	}
 
-    public List<Bill> getDueBills() {
+	public List<Bill> getDueBills() {
 
-        return repository.findAll()
-                .stream()
-                .filter(
-                        bill ->
-                                bill.getState()
-                                        == BillState.NOT_PAID)
-                .sorted(
-                        Comparator.comparing(
-                                Bill::getDueDate))
-                .toList();
-    }
+		return repository.findAll().stream().filter(bill -> bill.getState() == BillState.NOT_PAID)
+				.sorted(Comparator.comparing(Bill::getDueDate)).toList();
+	}
 }

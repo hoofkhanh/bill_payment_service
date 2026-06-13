@@ -1,4 +1,5 @@
-this project is better if i can create service repositories because of the time limit, i can't make it successful
+this project is better if i can create service repositories because of the time limit, i can't make it successful.
+This project would be better if i can catch a error that doesn't interrupt the program.
 
 ## Sample Commands
 Please use all the commands below in the given order.
@@ -6,7 +7,7 @@ Please use all the commands below in the given order.
 ### 1. Add funds to account
 
 ```text
-CASH_IN 1000000
+CASH_IN 10000000000
 ```
 
 ### 2. Create bills

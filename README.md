@@ -1,4 +1,5 @@
 ## Sample Commands
+Please use all the commands below in the given order.
 
 ### 1. Add funds to account
 
@@ -96,26 +97,5 @@ LIST_BILL
 
 ```text
 EXIT
-```
-
-## Error Handling Examples
-
-### Bill not found
-
-```text
-PAY 999
-```
-
-### Insufficient funds
-
-```text
-CASH_IN 100
-PAY 3
-```
-
-### Provider not found
-
-```text
-SEARCH_BILL_BY_PROVIDER UNKNOWN_PROVIDER
 ```
 
